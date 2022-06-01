@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .triangle {
+            /* width: 0; */
+            /* 10px透明边框 */
+            /* 4个边框重叠，重叠的部分平分 */
+            display: table-cell;
+            display: flex;
+            display: inline-block;
+            overflow: hidden;
+            position: absolute;
+            padding: fixed;
+
+            border: 10px solid transparent;
+            /* 向左箭头 */
+            /* border-right: 10px solid #f40; */
+            /* 向右箭头 */
+            /* border-left: 10px solid #f40; */
+            /* 向下箭头 */
+            /* border-top: 10px solid #f40; */
+            /* 向上箭头 */
+            /* border-bottom: 10px solid #f40; */
+        }
+    </style>
+</head>
+<body>
+    <div class="triangle"></div>
+    <script>
+        //为什么要清除浮动
+        //脱离文档流，高度塌陷
+
+        //父元素固定宽高
+        //优点：简单，代码少，没有兼容问题
+        //缺点：内部元素高度不确定的情况下无法使用
+
+        //添加新元素
+        //优点：简单，代码少，没有兼容问题
+        //缺点：需要增加无语义的html元素，代码不够优雅，不便于后期的维护
+        
+        //使用伪元素
+        //优点：仅用css实现，不容易出现怪问题
+        //缺点：仅支持ie8以上和非ie浏览器
+
+        //触发父元素BFC
+        //优点：仅用css实现，代码少，浏览器支持好
+        //缺点：用overflow:hidden触发BFC的情况下，可能会使内部本应正常显示的元素被裁剪
+
+        //BFC
+
+        //css画三角形
+        //使用场景
+        //下拉菜单 商品详情
+
+        //为什么要用css画三角形
+        //处于页面性能考虑，避免发送过多的http请求，节省带宽 
+
+        //css提高页面性能的方法
+        //属性设置使用简写
+        //减少生产包体积
+        //p {            
+            // margin-top: 10px;
+            // margin-right: 20px;
+            // margin-bottom: 30px;
+            // margin-left: 40px;
+        // }
+        //p{margin: 10px 20px 30px 40px}
+
+        //用css替换图片
+        //用css画三角形，箭头，圆形....
+        //减少http请求节约带宽
+
+        //删除不必要的零和单位
+        //减少生产包体积
+        //.box {
+            //with: .2em,
+            //height:20em,
+            //padding:0
+        //}
+
+        //用css精灵图替代单个文件加载
+        //减少http请求节约带宽
+        
+
+        //盒模型
+        //什么是盒模型
+        //css基础框盒模型是css规范的一个模块，它定义了一种长方形的盒子
+
+        //盒模型分类
+        //标准定义:标准盒模型，替代（IE）盒模型
+        //元素类型：块级盒子和内联盒子
+
+        //盒模型的切换
+        //ie:box-sizing:border-box; width,height 内容的宽高
+        //标准：box-sizing:content-box;width,height border+padding+内容的宽高
+
+        //BFC
+        //块格式化上下文
+        //BFC是一个完全独立的空间，这个空间里子元素的渲染不会影响到外面的布局
+
+        //创建bfc
+        // display: table-cell;
+        // display: flex;
+        // display: inline-block;
+        // overflow: hidden;
+        // position: absolute;
+        // padding: fixed;
+
+        //bfc解决问题
+        //垂直方向margin重叠问题
+        //使用float脱离文档流，父元素高度塌陷
+
+        //css选择器
+        //用来对选定的页面元素进行样式修改
+        //css选择器有哪些
+        //类型选择器 h1
+        //通配选择器 *
+        //类选择器 .
+        //id选择器 #
+        //标签属性选择器 a[title]
+        //伪类选择器 p:first-child
+        //伪元素选择器 p::first-line
+        //后代选择器  artice p
+        //子代选择器  artice>p
+        //相邻兄弟选择器 h1+p
+        //通用兄弟选择器 h1~p
+
+        //css选择器优先级
+        //css选择器优先级是基于不同种类选择器组成的匹配规则
+        //!import>行内>#>. :: h1>a[title] : >* \> +
+
+        //什么是css的属性继承
+        //css属性继承指的是，特定的css属性可以向下传递到后代元素
+        //css常见的可继承属性
+        //字体
+        //font,font-family,font-size,font-style,font-variant,font-weight
+        //字母间距
+        //letter-spacing
+        //字间距
+        //word-spacing
+        //可见性
+        //visibility
+        //文字展示
+        //line-height,text-align,text-indent,text-transform
+    </script>
+</body>
+</html>

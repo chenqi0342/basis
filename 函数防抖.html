@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="searchElement">
+    <script>
+        const searchElement = document.getElementById("searchElement")
+        const debounce = (fn,initial)=>{
+            let timer = null;
+            return ()=>{
+                clearTimeout(timer)
+                timer = setTimeout(fn,initial);
+            }
+        }
+        searchElement.oninput = debounce(function(event){
+            const value = searchElement.value
+            console.log(value)
+        },1000)
+        //函数防抖，事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时
+        //场景，搜索框，数据查询
+        //返回一个函数，固定间隔执行事件响应函数
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			//函数节流
+			//规定在一个单位时间内，事件响应函数只能被触发一次。如果这个单位时间内触发多次函数，只有一次生效。
+			//使用场景
+			//window.onresize 改变浏览器视口触发
+			//单位时间内 只触发一次
+			//返回值是事件响应函数
+			//开启定时器
+			//如果定时器存在，直接返回false
+			//定时器内部清空定时器，并把定时器设为null
+			function throttle(fn, initial) {
+				var timer
+				return (event) => {
+					if (timer) {
+                        console.log('111')
+						return false
+					}
+                    console.log('2222')
+					timer = setTimeout(() => {
+                        console.log('33333')
+						clearTimeout(timer)
+						timer = null
+						fn(event)
+                        console.log(timer,'timer')
+					}, initial)
+				}
+			} //默认返回值undefined 所以返回一个函数，执行fn
+
+			window.onresize = throttle(function (event) {
+				console.log(event, 'event')
+			}, 1000)
+			//mousemove
+		</script>
+	</body>
+</html>
